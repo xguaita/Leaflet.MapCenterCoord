@@ -1,0 +1,28 @@
+---
+
+port: 4000
+host: 0.0.0.0
+safe: false
+
+
+### site serving configuration ###
+exclude: [CNAME, README.md, .gitignore, node_modules]
+permalink: / ## disables post output
+timezone: null
+lsi: false
+#markdown: kramdown
+markdown: redcarpet
+highlighter: pygments
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+
+
+### content configuration ###
+title:       "Leaflet.MapCenterCoord"
+keywords:    "leaflet, plugin, control, center map, coordinates, mobile"
+description: "A Leaflet control to display the coordinates of the map center, especially useful on touch/mobile devices"
+source_link: "https://github.com/xguaita/Leaflet.MapCenterCoord"
+author:      "Xisco Guaita"
+author_link: "https://github.com/xguaita"
+favicon:     #put a path like: "img/favicon.ico"
+touch_icon:  #put a path like: "img/apple-touch-icon.png"
