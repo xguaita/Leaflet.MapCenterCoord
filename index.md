@@ -19,7 +19,7 @@ Usually in mobile or touch devices there is no pointer. The alternative is, for 
 + Then create a MapCenterCoord control and add it to map:
 
 ```javascript
-L.control.MapCenterCoord().addTo(map);
+L.control.mapCenterCoord().addTo(map);
 ```
 
 <div style="text-align:center;width:100%;">
@@ -54,7 +54,7 @@ The MapCenterCoord control inherits options from [Leaflet Controls](http://leafl
 Degrees and decimal minutes. Show N-S and E-W.
 
 ```javascript
-L.control.MapCenterCoord({
+L.control.mapCenterCoord({
   latlngFormat: 'DM',
   latlngDesignators: true
 }).addTo(map);
@@ -71,7 +71,7 @@ L.control.MapCenterCoord({
 Degrees, minutes and seconds.
 
 ```javascript
-L.control.MapCenterCoord({
+L.control.mapCenterCoord({
   latlngFormat: 'DMS'
 }).addTo(map);
 ```
@@ -124,7 +124,7 @@ var map = L.map('map', {
 + Configure MapCenterCoord control (update map center coordinates while dragging, no decimals and edit template):  
 
 ```javascript
-L.control.MapCenterCoord({
+L.control.mapCenterCoord({
   iconFile: 'MapCenterCoordIcon2.png',
   template: '<b>ETRS89 UTM31N</b><br>x:{x} y:{y}',
   projected: true,
