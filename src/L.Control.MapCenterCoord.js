@@ -207,6 +207,6 @@ L.Map.addInitHook(function () {
   }
 });
 
-L.control.MapCenterCoord = function (options) {
+L.control.mapCenterCoord = function (options) {
   return new L.Control.MapCenterCoord(options);
 };

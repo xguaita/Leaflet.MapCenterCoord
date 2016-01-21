@@ -10,14 +10,14 @@ The initial idea was based on the plugin [Leaflet.MousePosition](https://github.
 Add the following line to your map initialization:
 
 ``` js
-L.control.MapCenterCoord().addTo(map);
+L.control.mapCenterCoord().addTo(map);
 ```
 You can also pass a configuration.
 
 
 ## Configuration options
 
-The MapCenterCoord controls inherits options from [Leaflet Controls](http://leafletjs.com/reference.html#control-options).
+The MapCenterCoord control inherits options from [Leaflet Controls](http://leafletjs.com/reference.html#control-options).
 
 | Option | Type | Default | Description
 | --- | --- | --- | ---
