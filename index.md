@@ -7,7 +7,10 @@ Usually in mobile or touch devices there is no pointer. The alternative is, for 
 
 # Usage
 
-+ Download and place files from ```dist``` folder to the same place in your project.  
++ Download and build minified versions:  
+  First, install node.js on your system. Then run `npm install` to build the minified js and css into `/dist`  
+  
++ Place files from `/dist` folder to the same place in your project.  
 
 + Link javascript and style files in your HTML document:
 
@@ -86,11 +89,12 @@ L.control.mapCenterCoord({
 
 Show projected coordinates and change crosshair icon.
 
-+ Link proj4.js library in your HTML document, define projection and configure map:  
++ Link proj4.js library and <a href="http://kartena.github.io/Proj4Leaflet/" target="_blank" >Proj4Leaflet</a> in your HTML document, define projection and configure map:  
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.12/proj4.js">
 </script>
+<script src="./lib/proj4leaflet.min.js"></script>
 ```
 
 ```javascript
