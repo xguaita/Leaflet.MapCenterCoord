@@ -4,6 +4,20 @@ A Leaflet control to display the coordinates of the map center, especially usefu
 
 The initial idea was based on the plugin [Leaflet.MousePosition](https://github.com/ardhi/Leaflet.MousePosition).
 
+## Examples
+
+http://xguaita.github.io/Leaflet.MapCenterCoord/
+
+Sources in `/examples` folder
+
+## Install
+
+  + Download. Source code in `/src` folder
+
+  + Building minified versions:  
+    First, install node.js on your system. Then run `npm install` to build the minified js and css into `/dist`
+
+  + Include the js and css files located in the `/dist` folder
 
 ## Usage
 
@@ -30,9 +44,6 @@ The MapCenterCoord control inherits options from [Leaflet Controls](http://leafl
 | projected | Boolean | `false` | Show projected coordinates
 | formatProjected | String | `'#.##0,0'` | Number format mask for projected coordinates.<br>[JavaScript Number Formatter](https://code.google.com/p/javascript-number-formatter/) project: [sample/help page](http://www.integraxor.com/developer/codes/js-formatter/format-sample.htm )
 
-## Examples
-
-http://xguaita.github.io/Leaflet.MapCenterCoord/
 
 ## License
 
