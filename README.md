@@ -25,7 +25,7 @@ Sources in [/examples](/xguaita/Leaflet.MapCenterCoord/tree/master/examples) fol
 
 ## Install
 
-  + [Download](/xguaita/Leaflet.MapCenterCoord/releases/latest) latest release  
+  + [Download](https://github.com/xguaita/Leaflet.MapCenterCoord/releases/latest) latest release  
     - Source code in `/src` folder  
     - Minified versions in `/dist`  
 
