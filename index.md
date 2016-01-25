@@ -7,16 +7,22 @@ Usually in mobile or touch devices there is no pointer. The alternative is, for 
 
 # Usage
 
-+ Download and build minified versions:  
-  First, install node.js on your system. Then run `npm install` to build the minified js and css into `/dist`  
-  
-+ Place files from `/dist` folder to the same place in your project.  
++ [Download](https://github.com/xguaita/Leaflet.MapCenterCoord/releases/latest) latest release  
+  - Source code in `/src` folder  
+  - Minified versions in `/dist`  
 
-+ Link javascript and style files in your HTML document:
++ Include js and css files located in the `/dist` folder (production) or `/src` (development)
 
 ```html
-<link rel="stylesheet" href="path-to-files/L.Control.MapCenterCoord.min.css" />
-<script src="path-to-files/L.Control.MapCenterCoord.min.js"></script>
+<!-- Production--> 
+<link rel="stylesheet" href="dist/L.Control.MapCenterCoord.min.css" />
+<script src="dist/L.Control.MapCenterCoord.min.js"></script>
+```
+
+```html
+<!-- Development / debug --> 
+<link rel="stylesheet" href="src/L.Control.MapCenterCoord.css" />
+<script src="src/L.Control.MapCenterCoord.js"></script>
 ```
 
 + Then create a MapCenterCoord control and add it to map:
@@ -143,4 +149,15 @@ L.control.mapCenterCoord({
 
 <a href="{{ site.source_link }}/blob/master/examples/etrs89-31n.html" target="_blank" >Source code...</a>
 
-<br>
+# Requirements
+
+Leaflet v7.x  
+Tested ok on Leaflet 1.0 beta2  
+
+### Some tested platforms
+
+Android 4.4.2: Google Chrome 47 and stock browser  
+iOS 9.2: Safari  
+
+Desktops: Windows 7, Windows 10, Ubuntu 14.04 LTS  
+Google Chrome 47, Firefox 43, Microsoft Internet Explorer 10, 11 and Edge 25  
