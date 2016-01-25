@@ -4,20 +4,35 @@ A Leaflet control to display the coordinates of the map center, especially usefu
 
 The initial idea was based on the plugin [Leaflet.MousePosition](https://github.com/ardhi/Leaflet.MousePosition).
 
+## Requirements
+
+Leaflet v7.x  
+Tested ok on Leaflet 1.0 beta2  
+
+#### Some tested platforms
+
+Android 4.4.2: Google Chrome 47 and stock browser  
+iOS 9.2: Safari  
+
+Desktops: Windows 7, Windows 10, Ubuntu 14.04 LTS  
+Google Chrome 47, Firefox 43, Microsoft Internet Explorer 10, 11 and Edge 25  
+
 ## Examples
 
 http://xguaita.github.io/Leaflet.MapCenterCoord/
 
-Sources in `/examples` folder
+Sources in [/examples](/xguaita/Leaflet.MapCenterCoord/tree/master/examples) folder
 
 ## Install
 
-  + Download. Source code in `/src` folder
+  + [Download](/xguaita/Leaflet.MapCenterCoord/releases/latest) latest release  
+    - Source code in `/src` folder  
+    - Minified versions in `/dist`  
 
-  + Building minified versions:  
+  + Include js and css files located in the `/dist` folder (production) or `/src` (development)
+
+  + If you want to change the code and build minified versions:  
     First, install node.js on your system. Then run `npm install` to build the minified js and css into `/dist`
-
-  + Include the js and css files located in the `/dist` folder
 
 ## Usage
 
