@@ -88,41 +88,47 @@ L.Control.MapCenterCoord = L.Control.extend({
   _getLatLngCoord: function (center) {
     var lat, lng, deg, min;
 
+	//make a copy of center so we aren't affecting leaflet's internal state
+    var centerCopy = {
+		lat: center.lat,
+		lng: center.lng
+	};
+
     // 180 degrees & negative
-    if (center.lng < 0) {
-      center.lng_neg = true;
-      center.lng = Math.abs(center.lng);
-    } else center.lng_neg = false;
-    if (center.lat < 0) {
-      center.lat_neg = true;
-      center.lat = Math.abs(center.lat);
-    } else center.lat_neg = false;
-    if (center.lng > 180) {
-      center.lng = 360 - center.lng;
-      center.lng_neg = !center.lng_neg;
+    if (centerCopy.lng < 0) {
+      centerCopy.lng_neg = true;
+      centerCopy.lng = Math.abs(centerCopy.lng);
+    } else centerCopy.lng_neg = false;
+    if (centerCopy.lat < 0) {
+      centerCopy.lat_neg = true;
+      centerCopy.lat = Math.abs(centerCopy.lat);
+    } else centerCopy.lat_neg = false;
+    if (centerCopy.lng > 180) {
+      centerCopy.lng = 360 - centerCopy.lng;
+      centerCopy.lng_neg = !centerCopy.lng_neg;
     }
 
     // format
     if (this.options.latlngFormat === 'DM') {
-      deg = parseInt(center.lng);
-      lng = deg + 'º ' + this._format('00.000', (center.lng - deg) * 60) + "'";
-      deg = parseInt(center.lat);
-      lat = deg + 'º ' + this._format('00.000', (center.lat - deg) * 60) + "'";
+      deg = parseInt(centerCopy.lng);
+      lng = deg + 'º ' + this._format('00.000', (centerCopy.lng - deg) * 60) + "'";
+      deg = parseInt(centerCopy.lat);
+      lat = deg + 'º ' + this._format('00.000', (centerCopy.lat - deg) * 60) + "'";
     } else if (this.options.latlngFormat === 'DMS') {
-      deg = parseInt(center.lng);
-      min = (center.lng - deg) * 60;
+      deg = parseInt(centerCopy.lng);
+      min = (centerCopy.lng - deg) * 60;
       lng = deg + 'º ' + this._format('00', parseInt(min)) + "' " + this._format('00.0', (min - parseInt(min)) * 60) + "''";
-      deg = parseInt(center.lat);
-      min = (center.lat - deg) * 60;
+      deg = parseInt(centerCopy.lat);
+      min = (centerCopy.lat - deg) * 60;
       lat = deg + 'º ' + this._format('00', parseInt(min)) + "' " + this._format('00.0', (min - parseInt(min)) * 60) + "''";
     } else { // 'DD'
-      lng = this._format('#0.00000', center.lng) + 'º';
-      lat = this._format('##0.00000', center.lat) + 'º';
+      lng = this._format('#0.00000', centerCopy.lng) + 'º';
+      lat = this._format('##0.00000', centerCopy.lat) + 'º';
     }
 
     return L.Util.template(this.options.template, {
-      x: (!this.options.latlngDesignators && center.lng_neg ? '-' : '') + lng + (this.options.latlngDesignators ? (center.lng_neg ? ' W' : ' E') : ''),
-      y: (!this.options.latlngDesignators && center.lat_neg ? '-' : '') + lat + (this.options.latlngDesignators ? (center.lat_neg ? ' S' : ' N') : '')
+      x: (!this.options.latlngDesignators && centerCopy.lng_neg ? '-' : '') + lng + (this.options.latlngDesignators ? (centerCopy.lng_neg ? ' W' : ' E') : ''),
+      y: (!this.options.latlngDesignators && centerCopy.lat_neg ? '-' : '') + lat + (this.options.latlngDesignators ? (centerCopy.lat_neg ? ' S' : ' N') : '')
     });
   },
 
