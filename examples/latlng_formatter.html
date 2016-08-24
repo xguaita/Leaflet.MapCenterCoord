@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Center Position Control - Single lat/lng formatter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
+  <link rel="stylesheet" href="http://xguaita.github.io/Leaflet.MapCenterCoord/dist/L.Control.MapCenterCoord.min.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
+  <script src="../src/L.Control.MapCenterCoord.js"></script>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    html, body, #map {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="map" class="map"></div>
+
+  <script>
+    var map = L.map('map').setView([39.588, 2.935], 9);
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.control.mapCenterCoord({
+	  latLngFormatter: function (lat, lng) {
+	    return "location is " + lat.toFixed(4) + " north and " + lng.toFixed(4) + " west";
+	  },
+      onMove: true
+    }).addTo(map);
+  </script>
+</body>
+
+</html>
