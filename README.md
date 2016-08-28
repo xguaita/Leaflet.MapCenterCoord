@@ -58,6 +58,7 @@ The MapCenterCoord control inherits options from [Leaflet Controls](http://leafl
 | latlngDesignators | Boolean | `false` | Show N-S and E-W
 | projected | Boolean | `false` | Show projected coordinates
 | formatProjected | String | `'#.##0,0'` | Number format mask for projected coordinates.<br>[JavaScript Number Formatter](https://code.google.com/p/javascript-number-formatter/) project: [sample/help page](http://www.integraxor.com/developer/codes/js-formatter/format-sample.htm )
+| latLngFormatter | Function | `undefined` | Function that takes the lattitude and longitude as arguments and returns a single formatted string, e.g.<pre>function (lat, lng) {<br>    return lat + " north and " + lng + " west";<br>}</pre>
 
 
 ## License

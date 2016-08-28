@@ -8,7 +8,8 @@ L.Control.MapCenterCoord = L.Control.extend({
     projected: false,
     formatProjected: '#.##0,000',
     latlngFormat: 'DD', // DD, DM, DMS
-    latlngDesignators: false
+    latlngDesignators: false,
+    latLngFormatter: undefined
   },
 
   onAdd: function (map) {
@@ -86,6 +87,9 @@ L.Control.MapCenterCoord = L.Control.extend({
 
 
   _getLatLngCoord: function (center) {
+
+    if (this.options.latLngFormatter != undefined) return this.options.latLngFormatter(center.lat, center.lng);
+
     var lat, lng, deg, min;
 
 	//make a copy of center so we aren't affecting leaflet's internal state
