@@ -4,7 +4,7 @@ L.Control.MapCenterCoord = L.Control.extend({
     position: 'bottomleft',
     icon: true,
     onMove: false,
-    template: '{y} | {x}', // https://en.wikipedia.org/wiki/ISO_6709
+    template: '{y} | {x} | {zoom}', // https://en.wikipedia.org/wiki/ISO_6709
     projected: false,
     formatProjected: '#.##0,000',
     latlngFormat: 'DD', // DD, DM, DMS
@@ -13,6 +13,8 @@ L.Control.MapCenterCoord = L.Control.extend({
   },
 
   onAdd: function (map) {
+    this._map = map;
+
     if (this.options.icon) {
       // create a DOM element and put it into overlayPane
       this._iconEl = L.DomUtil.create('div', 'leaflet-control-mapcentercoord-icon leaflet-zoom-hide');
@@ -81,7 +83,8 @@ L.Control.MapCenterCoord = L.Control.extend({
   _getProjectedCoord: function (center) {
     return L.Util.template(this.options.template, {
       x: this._format(this.options.formatProjected, center.x),
-      y: this._format(this.options.formatProjected, center.y)
+      y: this._format(this.options.formatProjected, center.y),
+      zoom: this._map.getZoom()
     });
   },
 
@@ -132,7 +135,8 @@ L.Control.MapCenterCoord = L.Control.extend({
 
     return L.Util.template(this.options.template, {
       x: (!this.options.latlngDesignators && centerCopy.lng_neg ? '-' : '') + lng + (this.options.latlngDesignators ? (centerCopy.lng_neg ? ' W' : ' E') : ''),
-      y: (!this.options.latlngDesignators && centerCopy.lat_neg ? '-' : '') + lat + (this.options.latlngDesignators ? (centerCopy.lat_neg ? ' S' : ' N') : '')
+      y: (!this.options.latlngDesignators && centerCopy.lat_neg ? '-' : '') + lat + (this.options.latlngDesignators ? (centerCopy.lat_neg ? ' S' : ' N') : ''),
+      zoom: this._map.getZoom()
     });
   },
 
